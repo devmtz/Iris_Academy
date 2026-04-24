@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iris Academy - Your Path to Academic Excellence</title>
+  
+  <meta name="description" content="Iris Academy offers primary, secondary, and adult language support. Join us on your path to excellence.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Reading Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Navigation Bar -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <!-- Given the user provided an image, we assume it's in the same folder or we use the text as fallback -->
+        <img src="logo.png" alt="Iris Academy Logo" class="logo-img" onerror="this.style.display='none'">
+        <span class="logo-text hidden-if-img">Iris Academy</span>
+      </div>
+      
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="#hero" data-i18n="navHome">Home</a></li>
+          <li><a href="#resources" data-i18n="navCourses">Our Courses</a></li>
+          <li><a href="#hub" data-i18n="navHub">Student Hub</a></li>
+          <li><a href="#contact" data-i18n="navAbout">About Us</a></li>
+          <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode" data-i18n-aria="themeToggle">
+          <svg class="moon-icon" fill="currentColor" viewBox="0 0 24 24" width="20" height="20"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+          <svg class="sun-icon" fill="currentColor" viewBox="0 0 24 24" width="20" height="20" style="display:none;"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.303 18.894a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM12 18.75a.75.75 0 01.75.75V21.75a.75.75 0 01-1.5 0V19.5a.75.75 0 01.75-.75zM6.697 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM2.25 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zM5.106 6.166a.75.75 0 001.06-1.06l-1.591-1.59a.75.75 0 10-1.06 1.061l1.591-1.59z"></path></svg>
+        </button>
+        <div class="lang-switcher">
+          <select id="lang-select" aria-label="Select Language">
+            <option value="en">EN</option>
+            <option value="ar">AR</option>
+            <option value="fr">FR</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="container hero-container">
+        <div class="hero-content fade-in-up">
+          <h1 class="hero-title" data-i18n="heroTitle">Iris Academy: Your Path to Academic Excellence</h1>
+          <p class="hero-subtitle" data-i18n="heroSubtitle">Empowering students of all ages—Primary, Secondary, and Adults—to reach for the stars.</p>
+          <a href="#resources" class="cta-button" data-i18n="heroCta">Explore Resources</a>
+        </div>
+        
+        <div class="hero-image-wrapper fade-in-up delay-1">
+          <!-- The curved mask mimicking the logo's orbital arch -->
+          <div class="curved-mask">
+            <img src="logo.png" alt="Students studying happily" class="hero-img" id="hero-dynamic-img">
+            <div class="star-decor star-1">★</div>
+            <div class="star-decor star-2">★</div>
+            <div class="star-decor star-3">★</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Counter Section -->
+    <section id="stats" class="stats">
+      <div class="container stats-container">
+        <div class="stat-item fade-in-up">
+          <div class="stat-number" data-target="500">0</div>
+          <div class="stat-label" data-i18n="statSummaries">Summaries</div>
+        </div>
+        <div class="stat-item fade-in-up delay-1">
+          <div class="stat-number" data-target="100">0</div>
+          <div class="stat-label" data-i18n="statStudents">Students</div>
+        </div>
+        <div class="stat-item fade-in-up delay-2">
+          <div class="stat-number" data-target="98" data-suffix="%">0</div>
+          <div class="stat-label" data-i18n="statSuccess">Success Rate</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resource Hub Section -->
+    <section id="resources" class="resources">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <h2 data-i18n="hubTitle">Resource Hub</h2>
+          <p data-i18n="hubSubtitle">Download essential educational materials to support your learning journey.</p>
+          <div class="search-container">
+            <input type="text" id="resource-search" placeholder="Search resources..." data-i18n-placeholder="searchPlaceholder">
+            <svg class="search-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          </div>
+        </div>
+
+        <div class="resource-grid">
+          <!-- Card 1 -->
+          <div class="resource-card fade-in-up delay-1">
+            <div class="card-badge badge-primary" data-i18n="badgeMath">Math</div>
+            <div class="icon-wrapper primary">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+            </div>
+            <h3 data-i18n="card1Title">Math: 6th Grade - Homework Set</h3>
+            <button class="download-btn cta-button-small" data-i18n="downloadBtn">Download PDF</button>
+          </div>
+          <!-- Card 2 -->
+          <div class="resource-card fade-in-up delay-2">
+            <div class="card-badge badge-blue" data-i18n="badgeScience">Science</div>
+            <div class="icon-wrapper accent-blue">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.09C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zM21 18.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg>
+            </div>
+            <h3 data-i18n="card2Title">French: Beginner Vocabulary</h3>
+            <button class="download-btn cta-button-small" data-i18n="downloadBtn">Download PDF</button>
+          </div>
+          <!-- Card 3 -->
+          <div class="resource-card fade-in-up delay-3">
+             <div class="card-badge badge-gold" data-i18n="badgePhysics">Physics</div>
+             <div class="icon-wrapper accent-gold">
+               <svg fill="currentColor" viewBox="0 0 24 24"><path d="M11 2v4.07C7.38 6.53 4.53 9.38 4.07 13H2v-2c0-4.42 3.58-8 8-8zm1 15.93V22c4.42 0 8-3.58 8-8h-2v2c0 3.62-2.85 6.47-6.47 6.93zM13 19.93V22c4.42 0 8-3.58 8-8h-2c0 3.62-2.85 6.47-6.47 6.93z" opacity=".3"/><path d="M22 13h-4v-2h4V2L12 12V2L2 12h4v2H2v9l10-10v10l10-10z"/></svg>
+             </div>
+             <h3 data-i18n="card3Title">Science: Solar System Guide</h3>
+             <button class="download-btn cta-button-small" data-i18n="downloadBtn">Download PDF</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Slider -->
+    <section id="testimonials" class="testimonials">
+      <div class="container section-header fade-in-up">
+        <h2 data-i18n="testimonialsTitle">What Our Students Say</h2>
+      </div>
+      <div class="container slider-container fade-in-up delay-1">
+        <div class="testimonial-slider" id="testimonial-slider">
+          <div class="testimonial-slide active">
+            <p class="testimonial-text" data-i18n="testimonial1">"The best materials I've found for my exams."</p>
+            <h4 class="testimonial-author" data-i18n="testimonial1Author">- Sarah M.</h4>
+          </div>
+          <div class="testimonial-slide">
+            <p class="testimonial-text" data-i18n="testimonial2">"Very helpful and comprehensive support."</p>
+            <h4 class="testimonial-author" data-i18n="testimonial2Author">- Ahmed T.</h4>
+          </div>
+          <div class="testimonial-slide">
+            <p class="testimonial-text" data-i18n="testimonial3">"Excellent platform. My grades improved instantly!"</p>
+            <h4 class="testimonial-author" data-i18n="testimonial3Author">- Yasmine L.</h4>
+          </div>
+        </div>
+        <div class="slider-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container contact-container fade-in-up">
+        <div class="contact-info">
+          <h2 data-i18n="contactTitle">Get in Touch</h2>
+          <p data-i18n="contactSubtitle">Reach out to us to start your path to academic excellence!</p>
+          
+          <div class="social-contact">
+            <a href="tel:22196259" class="contact-link">
+               <span class="icon">📞</span>
+               <span class="text">22 196 259</span>
+            </a>
+            <a href="https://facebook.com/AcademyIris" target="_blank" rel="noopener" class="contact-link">
+               <span class="icon">📘</span>
+               <span class="text">@AcademyIris</span>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form">
+          <div class="input-group">
+            <label for="name" data-i18n="formName">Name</label>
+            <input type="text" id="name" placeholder="Your Name" required>
+          </div>
+          <div class="input-group">
+            <label for="email" data-i18n="formEmail">Email</label>
+            <input type="email" id="email" placeholder="Your Email" required>
+          </div>
+          <div class="input-group">
+            <label for="message" data-i18n="formMessage">Message</label>
+            <textarea id="message" rows="4" placeholder="How can we help?" required></textarea>
+          </div>
+          <button type="submit" class="cta-button" data-i18n="formSubmit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-logo">
+        <img src="image_3.png" alt="Iris Academy Logo" class="footer-logo-img" onerror="this.style.display='none'">
+      </div>
+      <p class="copyright" data-i18n="footerCopy">&copy; 2026 Iris Academy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating Action Bar -->
+  <div class="floating-action-bar">
+    <a href="mailto:contact@irisacademy.com" class="fab-btn email-btn" aria-label="Email Support" data-i18n-aria="emailSupport">
+      <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <span class="fab-text" data-i18n="emailSupportText">Contact Support</span>
+    </a>
+    <a href="https://wa.me/21622196259?text=Hello Iris Academy," class="fab-btn wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp Support" data-i18n-aria="waSupport">
+      <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.46 14.1c-.26.74-1.52 1.41-2.12 1.48-.56.07-1.29.17-3.69-.82-2.88-1.19-4.73-4.14-4.88-4.34-.14-.2-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.38.26-.27.57-.34.77-.34.2 0 .4 0 .58.01.2.01.46-.08.72.54.27.65.91 2.22.99 2.38.08.16.14.35.03.56-.1.2-.16.33-.32.53-.16.19-.34.42-.48.58-.16.17-.34.36-.14.71.21.34.92 1.5 1.97 2.43 1.35 1.2 2.49 1.57 2.83 1.73.34.16.54.14.74-.09.21-.24.9-1.04 1.14-1.4.24-.36.48-.3.79-.19.32.12 1.99.94 2.33 1.11.34.17.56.25.64.39.09.15.09.84-.17 1.58z"/></svg>
+      <span class="fab-text" data-i18n="waSupportText">WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- Generic Toast Notification -->
+  <div id="toast" class="toast-notification">
+    <div class="toast-content" id="toast-message-container">
+      <span id="toast-text"></span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
