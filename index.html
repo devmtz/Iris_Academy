@@ -178,23 +178,23 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-      <div class="container contact-container fade-in-up">
-        <div class="contact-info">
-          <h2 data-i18n="contactTitle">Get in Touch</h2>
-          <p data-i18n="contactSubtitle">Reach out to us to start your path to academic excellence!</p>
-          
-          <div class="social-contact">
-            <a href="tel:22196259" class="contact-link">
-               <span class="icon">📞</span>
-               <span class="text">22 196 259</span>
-            </a>
-            <a href="https://facebook.com/AcademyIris" target="_blank" rel="noopener" class="contact-link">
-               <span class="icon">📘</span>
-               <span class="text">@AcademyIris</span>
-            </a>
-          </div>
+      <div class="container section-header fade-in-up" style="margin-bottom: 48px;">
+        <h2 data-i18n="contactTitle">Get in Touch</h2>
+        <p data-i18n="contactSubtitle">Reach out to us to start your path to academic excellence!</p>
+        
+        <div class="social-contact" style="display: flex; justify-content: center; gap: 24px; flex-direction: row; margin-top: 24px; flex-wrap: wrap;">
+          <a href="tel:22196259" class="contact-link" style="margin-top: 0; box-shadow: var(--shadow-sm);">
+             <span class="icon">📞</span>
+             <span class="text">22 196 259</span>
+          </a>
+          <a href="https://facebook.com/AcademyIris" target="_blank" rel="noopener" class="contact-link" style="margin-top: 0; box-shadow: var(--shadow-sm);">
+             <span class="icon">📘</span>
+             <span class="text">@AcademyIris</span>
+          </a>
         </div>
+      </div>
 
+      <div class="container contact-container fade-in-up delay-1">
         <form class="contact-form">
           <div class="input-group">
             <label for="name" data-i18n="formName">Name</label>
@@ -210,6 +210,16 @@
           </div>
           <button type="submit" class="cta-button" data-i18n="formSubmit">Send Message</button>
         </form>
+
+        <div class="contact-right">
+          <div class="qr-container">
+            <p class="qr-label" data-i18n="scanLocationLabel">Scan to find our location</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://maps.app.goo.gl/ShYf6nbihZDyLVGNA&color=9A79B1&bgcolor=ffffff" alt="Iris Academy Location QR" class="qr-code">
+          </div>
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps?q=Iris+Academy+Tunisia&output=embed" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
       </div>
     </section>
   </main>

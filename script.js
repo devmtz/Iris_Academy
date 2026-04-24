@@ -79,7 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
       welcomeMessage: "Welcome to the Student Hub!",
       generatingLink: "Generating Link...",
       dir: "ltr",
-      filterAll: "All"
+      filterAll: "All",
+      scanLocationLabel: "Scan to find our location"
     },
     ar: {
       navHome: "الرئيسية",
@@ -127,7 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
       welcomeMessage: "مرحباً بكم في بوابة الطالب!",
       generatingLink: "جاري إنشاء الرابط...",
       dir: "rtl",
-      filterAll: "الكل"
+      filterAll: "الكل",
+      scanLocationLabel: "امسح الرمز للعثور على موقعنا"
     },
     fr: {
       navHome: "Accueil",
@@ -175,7 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
       welcomeMessage: "Bienvenue dans l'Espace Étudiant !",
       generatingLink: "Génération du lien...",
       dir: "ltr",
-      filterAll: "Tous"
+      filterAll: "Tous",
+      scanLocationLabel: "Scannez pour trouver notre emplacement"
     }
   };
 
