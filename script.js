@@ -78,7 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
       testimonial3Author: "- Yasmine L.",
       welcomeMessage: "Welcome to the Student Hub!",
       generatingLink: "Generating Link...",
-      dir: "ltr"
+      dir: "ltr",
+      filterAll: "All"
     },
     ar: {
       navHome: "الرئيسية",
@@ -125,7 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
       testimonial3Author: "- ياسمين ل.",
       welcomeMessage: "مرحباً بكم في بوابة الطالب!",
       generatingLink: "جاري إنشاء الرابط...",
-      dir: "rtl"
+      dir: "rtl",
+      filterAll: "الكل"
     },
     fr: {
       navHome: "Accueil",
@@ -172,7 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
       testimonial3Author: "- Yasmine L.",
       welcomeMessage: "Bienvenue dans l'Espace Étudiant !",
       generatingLink: "Génération du lien...",
-      dir: "ltr"
+      dir: "ltr",
+      filterAll: "Tous"
     }
   };
 
@@ -278,22 +281,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- Live Search Logic ---
+  // --- Live Search & Filter Logic ---
   const searchInput = document.getElementById('resource-search');
+  const filterBtns = document.querySelectorAll('.filter-btn');
   const resourceCards = document.querySelectorAll('.resource-card');
+  let currentFilter = 'all';
 
-  searchInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase().trim();
-
+  function filterCards() {
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
     resourceCards.forEach(card => {
       const title = card.querySelector('h3').textContent.toLowerCase();
-      if (title.includes(query)) {
-        card.classList.remove('hidden-card');
+      const badge = card.querySelector('.card-badge').textContent.toLowerCase();
+      
+      const matchesSearch = title.includes(query) || badge.includes(query);
+      const matchesFilter = currentFilter === 'all' || badge.includes(currentFilter);
+
+      if (matchesSearch && matchesFilter) {
+        card.classList.remove('hidden');
       } else {
-        card.classList.add('hidden-card');
+        card.classList.add('hidden');
       }
     });
-  });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterCards);
+  }
+
+  if (filterBtns.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter').toLowerCase();
+        filterCards();
+      });
+    });
+  }
 
   // --- Enhanced Toast System ---
   const toast = document.getElementById('toast');

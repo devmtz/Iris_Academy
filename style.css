@@ -300,12 +300,18 @@ body.rtl .desktop-nav a::after {
   box-sizing: border-box;
 }
 
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
 .hero-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
   box-shadow: var(--shadow-md);
+  animation: heroFloat 3.5s ease-in-out infinite;
 }
 
 .star-decor {
@@ -575,13 +581,74 @@ body.rtl .search-icon {
   right: 12px;
 }
 
+/* Filter Buttons */
+.filter-btn.active {
+  background-color: var(--clr-primary) !important;
+  color: var(--clr-white) !important;
+}
+
 /* Fade & Scale for hidden cards */
-.resource-card.hidden-card {
+.resource-card.hidden {
   opacity: 0;
   visibility: hidden;
   position: absolute; /* Prevent taking up space while animated out */
   transform: scale(0.9);
   pointer-events: none;
+}
+
+/* Floating Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 32px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 12px 32px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+body.dark-theme .bottom-nav {
+  background: rgba(42, 42, 50, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--clr-text-light);
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.bottom-nav-item:hover,
+.bottom-nav-item.active {
+  color: var(--clr-primary);
+  transform: translateY(-2px);
+}
+
+.nav-icon {
+  font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+  .bottom-nav {
+    width: 90%;
+    justify-content: space-around;
+    padding: 12px 16px;
+    gap: 16px;
+  }
 }
 
 /* Floating Action Bar */
@@ -599,6 +666,17 @@ body.rtl .search-icon {
   box-shadow: var(--shadow-md);
   border: 1px solid rgba(154, 121, 177, 0.2);
   transition: var(--transition);
+}
+
+@media (max-width: 768px) {
+  .floating-action-bar {
+    bottom: 90px;
+    right: 16px;
+  }
+  body.rtl .floating-action-bar {
+    right: auto;
+    left: 16px;
+  }
 }
 
 body.rtl .floating-action-bar {
