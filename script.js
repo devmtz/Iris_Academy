@@ -7,27 +7,80 @@ document.addEventListener('DOMContentLoaded', () => {
     desktopNav.classList.toggle('active');
   });
 
+  // Desktop Mobile Dropdown logic
+  const dropdowns = document.querySelectorAll('.has-dropdown');
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('click', (e) => {
+      if(window.innerWidth <= 968) {
+        if(e.target.tagName.toLowerCase() === 'a') {
+          e.preventDefault();
+          dropdown.classList.toggle('active');
+        }
+      }
+    });
+  });
+
   // Smooth Scroll Intersection Observer for animations
-  const faders = document.querySelectorAll('.fade-in-up');
   const appearOptions = {
-    threshold: 0.15,
+    threshold: 0.1,
     rootMargin: "0px 0px -50px 0px"
   };
 
   const appearOnScroll = new IntersectionObserver(function(entries, observer) {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        return;
-      } else {
-        entry.target.classList.add('appear');
-        observer.unobserve(entry.target);
+      if (!entry.isIntersecting) return;
+      
+      const target = entry.target;
+      target.classList.add('appear');
+      
+      // Handle programmatic stagger for child items
+      if (target.classList.contains('stagger-container')) {
+        const staggerItems = target.querySelectorAll('.stagger-item');
+        staggerItems.forEach((item, index) => {
+          // Calculate delay based on index (0.15s stagger)
+          item.style.transitionDelay = `${index * 0.15}s`;
+          // We also need to add 'appear' class to items since they might not be observed individually
+          setTimeout(() => {
+            item.classList.add('appear');
+          }, index * 150);
+        });
       }
+      
+      observer.unobserve(target);
     });
   }, appearOptions);
 
+  const faders = document.querySelectorAll('.fade-in-up, .stagger-container');
   faders.forEach(fader => {
     appearOnScroll.observe(fader);
   });
+
+  // Custom Cursor Follower Logic
+  const cursor = document.querySelector('.custom-cursor');
+  const follower = document.querySelector('.custom-cursor-follower');
+  const interactiveElements = document.querySelectorAll('a, button, input, select, textarea, .resource-card');
+
+  if(cursor && follower) {
+    document.addEventListener('mousemove', (e) => {
+      requestAnimationFrame(() => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        follower.style.left = e.clientX + 'px';
+        follower.style.top = e.clientY + 'px';
+      });
+    });
+
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('hover');
+        follower.classList.add('hover');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hover');
+        follower.classList.remove('hover');
+      });
+    });
+  }
 
   // Language Switcher Logic
   const langSelect = document.getElementById('lang-select');
@@ -76,7 +129,30 @@ document.addEventListener('DOMContentLoaded', () => {
       testimonial2Author: "- Ahmed T.",
       testimonial3: "\"Excellent platform. My grades improved instantly!\"",
       testimonial3Author: "- Yasmine L.",
-      welcomeMessage: "Welcome to the Student Hub!",
+      navOnline: "Online Classes",
+      megaPrimary: "Primary (الابتدائي)",
+      megaBasic: "Basic (الأساسي)",
+      megaSecondary: "Secondary (الثانوي)",
+      grade1to3: "Grades 1 - 3",
+      grade4to6: "Grades 4 - 6",
+      grade7: "7 Basic",
+      grade8: "8 Basic",
+      grade9: "9 Basic",
+      grade10: "1 Secondary",
+      grade11: "2 Secondary",
+      grade12: "3 Secondary",
+      baccalaureate: "Baccalaureate",
+      dashboardTitle: "Student Dashboard",
+      dashboardSubtitle: "Track your progress and pick up where you left off.",
+      progressTitle: "Overall Completion",
+      progressText: "You're doing great! Keep up the good work.",
+      recentLessons: "Recently Watched Lessons",
+      lesson1TitleDash: "Algebra: Linear Equations",
+      lesson2TitleDash: "Physics: Thermodynamics",
+      lesson3TitleDash: "French: Passé Composé",
+      statusCompleted: "Completed",
+      statusInProgress: "In Progress",
+      statusStarted: "Just Started",
       generatingLink: "Generating Link...",
       dir: "ltr",
       filterAll: "All",
@@ -125,7 +201,30 @@ document.addEventListener('DOMContentLoaded', () => {
       testimonial2Author: "- أحمد ت.",
       testimonial3: "\"منصة ممتازة. تحسنت درجاتي على الفور!\"",
       testimonial3Author: "- ياسمين ل.",
-      welcomeMessage: "مرحباً بكم في بوابة الطالب!",
+      navOnline: "الدروس عبر الإنترنت",
+      megaPrimary: "الابتدائي",
+      megaBasic: "الأساسي",
+      megaSecondary: "الثانوي",
+      grade1to3: "السنوات 1 - 3",
+      grade4to6: "السنوات 4 - 6",
+      grade7: "السنة السابعة",
+      grade8: "السنة الثامنة",
+      grade9: "السنة التاسعة",
+      grade10: "السنة الأولى ثانوي",
+      grade11: "السنة الثانية ثانوي",
+      grade12: "السنة الثالثة ثانوي",
+      baccalaureate: "البكالوريا",
+      dashboardTitle: "لوحة تحكم الطالب",
+      dashboardSubtitle: "تتبع تقدمك واستأنف من حيث توقفت.",
+      progressTitle: "نسبة الإنجاز",
+      progressText: "أنت تقوم بعمل رائع! واصل تقدمك.",
+      recentLessons: "الدروس المشاهدة مؤخراً",
+      lesson1TitleDash: "الجبر: المعادلات الخطية",
+      lesson2TitleDash: "الفيزياء: الديناميكا الحرارية",
+      lesson3TitleDash: "الفرنسية: الزمن الماضي",
+      statusCompleted: "مكتمل",
+      statusInProgress: "قيد الإنجاز",
+      statusStarted: "بدأ للتو",
       generatingLink: "جاري إنشاء الرابط...",
       dir: "rtl",
       filterAll: "الكل",
@@ -174,7 +273,30 @@ document.addEventListener('DOMContentLoaded', () => {
       testimonial2Author: "- Ahmed T.",
       testimonial3: "\"Excellente plateforme. Mes notes se sont améliorées instantanément !\"",
       testimonial3Author: "- Yasmine L.",
-      welcomeMessage: "Bienvenue dans l'Espace Étudiant !",
+      navOnline: "Cours en Ligne",
+      megaPrimary: "Primaire",
+      megaBasic: "Collège",
+      megaSecondary: "Lycée",
+      grade1to3: "1ère - 3ème Année",
+      grade4to6: "4ème - 6ème Année",
+      grade7: "7ème Année",
+      grade8: "8ème Année",
+      grade9: "9ème Année",
+      grade10: "1ère Année Sec.",
+      grade11: "2ème Année Sec.",
+      grade12: "3ème Année Sec.",
+      baccalaureate: "Baccalauréat",
+      dashboardTitle: "Tableau de Bord",
+      dashboardSubtitle: "Suivez vos progrès et reprenez là où vous vous étiez arrêté.",
+      progressTitle: "Achèvement Global",
+      progressText: "Vous faites de l'excellent travail! Continuez comme ça.",
+      recentLessons: "Leçons Récemment Consultées",
+      lesson1TitleDash: "Algèbre : Équations Linéaires",
+      lesson2TitleDash: "Physique : Thermodynamique",
+      lesson3TitleDash: "Français : Passé Composé",
+      statusCompleted: "Terminé",
+      statusInProgress: "En Cours",
+      statusStarted: "Vient de Commencer",
       generatingLink: "Génération du lien...",
       dir: "ltr",
       filterAll: "Tous",
@@ -224,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailInput = document.getElementById('email');
     const msgInput = document.getElementById('message');
     if(lang === 'ar') {
-      if(nameInput) nameInput.placeholder = "الاسم الكريم";
+      if(nameInput) nameInput.placeholder = "الاسم";
       if(emailInput) emailInput.placeholder = "بريدك الإلكتروني";
       if(msgInput) msgInput.placeholder = "كيف يمكننا مساعدتك؟";
     } else if (lang === 'fr') {
@@ -347,7 +469,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
+    // Cap scrolled percentage to 100% just in case of overscrolling
+    const scrolled = Math.min((winScroll / height) * 100, 100);
     progressBar.style.width = scrolled + "%";
   });
 

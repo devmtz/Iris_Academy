@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iris Academy - Online Learning</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="online.css">
+</head>
+<body>
+
+  <!-- Authentication Gate Modal -->
+  <div id="auth-gate" class="auth-gate">
+    <div class="auth-card">
+      <div class="auth-header">
+        <img src="logo.png" alt="Iris Academy" class="auth-logo" onerror="this.style.display='none'">
+        <h2>منطقة محظورة</h2>
+        <p>الرجاء تسجيل الدخول للوصول إلى المنصة</p>
+      </div>
+      <form id="auth-form" class="auth-form">
+        <div class="input-group">
+          <label for="student-id">معرف الطالب / البريد الإلكتروني</label>
+          <input type="text" id="student-id" placeholder="أدخل المعرف أو البريد" required>
+        </div>
+        <div class="input-group">
+          <label for="password">كلمة المرور</label>
+          <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
+        </div>
+        <button type="submit" class="cta-button">تسجيل الدخول</button>
+        <div class="auth-footer">
+          <a href="#" class="create-account">إنشاء حساب جديد</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Application Wrapper -->
+  <div id="app" class="app-wrapper blurred">
+    <!-- Navbar / Mobile Toggle -->
+    <header class="top-bar">
+      <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </button>
+      <div class="bar-title">منصة التعليم عن بعد</div>
+      <a href="index.html" class="back-link">العودة للرئيسية</a>
+    </header>
+
+    <div class="app-container">
+      <!-- Glassmorphic Sidebar -->
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+          <h3>المناهج الدراسية</h3>
+        </div>
+        
+        <nav class="curriculum-nav">
+          <!-- Primary -->
+          <details class="nav-section">
+            <summary>التعليم الابتدائي</summary>
+            <ul>
+              <li><button class="nav-item">السنة الأولى</button></li>
+              <li><button class="nav-item">السنة الثانية</button></li>
+              <li><button class="nav-item">السنة الثالثة</button></li>
+              <li><button class="nav-item">السنة الرابعة</button></li>
+              <li><button class="nav-item">السنة الخامسة</button></li>
+              <li><button class="nav-item">السنة السادسة</button></li>
+            </ul>
+          </details>
+
+          <!-- Basic -->
+          <details class="nav-section">
+            <summary>التعليم الأساسي</summary>
+            <ul>
+              <li><button class="nav-item">السنة السابعة</button></li>
+              <li><button class="nav-item">السنة الثامنة</button></li>
+              <li><button class="nav-item">السنة التاسعة</button></li>
+            </ul>
+          </details>
+
+          <!-- Secondary -->
+          <details class="nav-section" open>
+            <summary>التعليم الثانوي</summary>
+            <div class="nested-nav">
+              
+              <!-- 1st Year -->
+              <details class="sub-section">
+                <summary>السنة الأولى</summary>
+                <ul>
+                  <li><button class="nav-item">جذع مشترك</button></li>
+                </ul>
+              </details>
+
+              <!-- 2nd Year -->
+              <details class="sub-section">
+                <summary>السنة الثانية</summary>
+                <ul>
+                  <li><button class="nav-item">علوم</button></li>
+                  <li><button class="nav-item">آداب</button></li>
+                  <li><button class="nav-item">اقتصاد وتصرف</button></li>
+                  <li><button class="nav-item">تكنولوجيا</button></li>
+                </ul>
+              </details>
+
+              <!-- 3rd Year -->
+              <details class="sub-section">
+                <summary>السنة الثالثة</summary>
+                <ul>
+                  <li><button class="nav-item">علوم تجريبية</button></li>
+                  <li><button class="nav-item">آداب</button></li>
+                  <li><button class="nav-item">اقتصاد وتصرف</button></li>
+                  <li><button class="nav-item">تقنية</button></li>
+                  <li><button class="nav-item">رياضيات</button></li>
+                  <li><button class="nav-item">إعلامية</button></li>
+                </ul>
+              </details>
+
+              <!-- 4th Year (Baccalaureate) -->
+              <details class="sub-section">
+                <summary>البكالوريا (السنة الرابعة)</summary>
+                <ul>
+                  <li><button class="nav-item">علوم تجريبية</button></li>
+                  <li><button class="nav-item">آداب</button></li>
+                  <li><button class="nav-item">اقتصاد وتصرف</button></li>
+                  <li><button class="nav-item">تقنية</button></li>
+                  <li><button class="nav-item">رياضيات</button></li>
+                  <li><button class="nav-item">علوم إعلامية</button></li>
+                  <li><button class="nav-item">رياضة</button></li>
+                </ul>
+              </details>
+
+            </div>
+          </details>
+        </nav>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main id="main-content" class="main-content">
+        <header class="content-header">
+          <h1>محتوى الدرس</h1>
+          <p>اختر من القائمة الجانبية لتصفح الدروس والموارد.</p>
+        </header>
+
+        <!-- Skeleton Loaders -->
+        <div class="lesson-grid" id="lesson-grid">
+          <!-- Skeletons generated by JS initially -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="online.js"></script>
+</body>
+</html>

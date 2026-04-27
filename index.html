@@ -14,6 +14,10 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-follower"></div>
+
   <!-- Reading Progress Bar -->
   <div id="scroll-progress"></div>
 
@@ -30,6 +34,35 @@
         <ul class="nav-links">
           <li><a href="#hero" data-i18n="navHome">Home</a></li>
           <li><a href="#resources" data-i18n="navCourses">Our Courses</a></li>
+          <li class="has-dropdown">
+            <a href="online.html" class="ghost-btn" data-i18n="navOnline">Online Classes</a>
+            <div class="mega-menu">
+              <div class="mega-col">
+                <h4 data-i18n="megaPrimary">Primary (الابتدائي)</h4>
+                <ul>
+                  <li><a href="online.html" data-i18n="grade1to3">Grades 1 - 3</a></li>
+                  <li><a href="online.html" data-i18n="grade4to6">Grades 4 - 6</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <h4 data-i18n="megaBasic">Basic (الأساسي)</h4>
+                <ul>
+                  <li><a href="online.html" data-i18n="grade7">Grade 7</a></li>
+                  <li><a href="online.html" data-i18n="grade8">Grade 8</a></li>
+                  <li><a href="online.html" data-i18n="grade9">Grade 9</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <h4 data-i18n="megaSecondary">Secondary (الثانوي)</h4>
+                <ul>
+                  <li><a href="online.html" data-i18n="grade10">Grade 10</a></li>
+                  <li><a href="online.html" data-i18n="grade11">Grade 11</a></li>
+                  <li><a href="online.html" data-i18n="grade12">Grade 12</a></li>
+                  <li><a href="online.html" data-i18n="baccalaureate">Baccalaureate</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
           <li><a href="#hub" data-i18n="navHub">Student Hub</a></li>
           <li><a href="#contact" data-i18n="navAbout">About Us</a></li>
           <li><a href="#contact" data-i18n="navContact">Contact</a></li>
@@ -98,17 +131,87 @@
       </div>
     </section>
 
+    <!-- Student Dashboard Section -->
+    <section id="dashboard" class="dashboard stagger-container">
+      <div class="container section-header fade-in-up stagger-item">
+        <h2 data-i18n="dashboardTitle">Student Dashboard</h2>
+        <p data-i18n="dashboardSubtitle">Track your progress and pick up where you left off.</p>
+      </div>
+      <div class="container dashboard-container">
+        <!-- Progress Module -->
+        <div class="dashboard-module progress-module fade-in-up stagger-item">
+          <div class="radial-progress" data-progress="75">
+            <svg viewBox="0 0 100 100">
+              <circle class="bg" cx="50" cy="50" r="45"></circle>
+              <circle class="progress" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <div class="progress-text">75%</div>
+          </div>
+          <div class="progress-info">
+            <h3 data-i18n="progressTitle">Overall Completion</h3>
+            <p data-i18n="progressText">You're doing great! Keep up the good work.</p>
+          </div>
+        </div>
+        
+        <!-- Recently Watched Grid Module -->
+        <div class="dashboard-module recent-module fade-in-up stagger-item">
+          <h3 data-i18n="recentLessons">Recently Watched Lessons</h3>
+          <div class="recent-grid stagger-container">
+             <!-- Lesson 1 -->
+             <div class="recent-card stagger-item fade-in-up">
+               <div class="recent-card-img primary-bg">
+                 <svg fill="currentColor" viewBox="0 0 24 24" width="32" height="32"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+               </div>
+               <div class="recent-card-content">
+                 <h4 data-i18n="lesson1TitleDash">Algebra: Linear Equations</h4>
+                 <div class="recent-progress">
+                   <div class="recent-bar" style="width: 100%;"></div>
+                 </div>
+                 <span class="status completed" data-i18n="statusCompleted">Completed</span>
+               </div>
+             </div>
+             <!-- Lesson 2 -->
+             <div class="recent-card stagger-item fade-in-up">
+               <div class="recent-card-img blue-bg">
+                 <svg fill="currentColor" viewBox="0 0 24 24" width="32" height="32"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2v-4h2v4z"/></svg>
+               </div>
+               <div class="recent-card-content">
+                 <h4 data-i18n="lesson2TitleDash">Physics: Thermodynamics</h4>
+                 <div class="recent-progress">
+                   <div class="recent-bar" style="width: 45%;"></div>
+                 </div>
+                 <span class="status in-progress" data-i18n="statusInProgress">In Progress</span>
+               </div>
+             </div>
+             <!-- Lesson 3 -->
+             <div class="recent-card stagger-item fade-in-up">
+               <div class="recent-card-img gold-bg">
+                 <svg fill="currentColor" viewBox="0 0 24 24" width="32" height="32"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 9H3V5h9v7z"/></svg>
+               </div>
+               <div class="recent-card-content">
+                 <h4 data-i18n="lesson3TitleDash">French: Passé Composé</h4>
+                 <div class="recent-progress">
+                   <div class="recent-bar" style="width: 10%;"></div>
+                 </div>
+                 <span class="status in-progress" data-i18n="statusStarted">Just Started</span>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Resource Hub Section -->
-    <section id="resources" class="resources">
+    <section id="resources" class="resources stagger-container">
       <div class="container">
-        <div class="section-header fade-in-up">
+        <div class="section-header fade-in-up stagger-item">
           <h2 data-i18n="hubTitle">Resource Hub</h2>
           <p data-i18n="hubSubtitle">Download essential educational materials to support your learning journey.</p>
           <div class="search-container">
             <input type="text" id="resource-search" placeholder="Search resources..." data-i18n-placeholder="searchPlaceholder">
             <svg class="search-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
           </div>
-          <div class="filters-container fade-in-up delay-1" style="display: flex; justify-content: center; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
+          <div class="filters-container fade-in-up stagger-item" style="display: flex; justify-content: center; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
             <button class="filter-btn active cta-button-small" data-filter="all" data-i18n="filterAll">All</button>
             <button class="filter-btn cta-button-small" data-filter="math" data-i18n="badgeMath">Math</button>
             <button class="filter-btn cta-button-small" data-filter="science" data-i18n="badgeScience">Science</button>
@@ -116,9 +219,9 @@
           </div>
         </div>
 
-        <div class="resource-grid">
+        <div class="resource-grid stagger-container">
           <!-- Card 1 -->
-          <div class="resource-card fade-in-up delay-1">
+          <div class="resource-card fade-in-up stagger-item">
             <div class="card-badge badge-primary" data-i18n="badgeMath">Math</div>
             <div class="icon-wrapper primary">
               <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
@@ -127,7 +230,7 @@
             <button class="download-btn cta-button-small" data-i18n="downloadBtn">Download PDF</button>
           </div>
           <!-- Card 2 -->
-          <div class="resource-card fade-in-up delay-2">
+          <div class="resource-card fade-in-up stagger-item">
             <div class="card-badge badge-blue" data-i18n="badgeScience">Science</div>
             <div class="icon-wrapper accent-blue">
               <svg fill="currentColor" viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.09C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zM21 18.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg>
@@ -136,7 +239,7 @@
             <button class="download-btn cta-button-small" data-i18n="downloadBtn">Download PDF</button>
           </div>
           <!-- Card 3 -->
-          <div class="resource-card fade-in-up delay-3">
+          <div class="resource-card fade-in-up stagger-item">
              <div class="card-badge badge-gold" data-i18n="badgePhysics">Physics</div>
              <div class="icon-wrapper accent-gold">
                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M11 2v4.07C7.38 6.53 4.53 9.38 4.07 13H2v-2c0-4.42 3.58-8 8-8zm1 15.93V22c4.42 0 8-3.58 8-8h-2v2c0 3.62-2.85 6.47-6.47 6.93zM13 19.93V22c4.42 0 8-3.58 8-8h-2c0 3.62-2.85 6.47-6.47 6.93z" opacity=".3"/><path d="M22 13h-4v-2h4V2L12 12V2L2 12h4v2H2v9l10-10v10l10-10z"/></svg>
